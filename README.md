@@ -1,7 +1,10 @@
+![image alt] (https://github.com/katiaaouine/n8n_rag_mistral_pinecone/blob/492fdf17cb803235df104f29ffb4c9b14bf092ca/Screenshot%202026-06-02%2011.01.01.png)
+
+
 ## n8n AI RAG Chatbot (Mistral + Pinecone)
 Un workflow n8n permettant de créer un chatbot intelligent basé sur tes documents (RAG - Retrieval Augmented Generation).
 
-##Objectif du projet:
+## Objectif du projet:
 - connecter n8n avec un LLM (Mistral)
 - indexer des données dans Pinecone
 - créer un agent capable de répondre à partir de documents personalisés
