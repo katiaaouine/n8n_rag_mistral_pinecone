@@ -1,6 +1,4 @@
-
-![image alt ](/https://github.com/katiaaouine/n8n_rag_mistral_pinecone/blob/e7a6b32cdc81c82314aa2d89522cc077ce573944/Screenshot%202026-06-02%2011.01.01.png)
-
+<img width="1699" height="648" alt="Screenshot 2026-06-02 11 01 01" src="https://github.com/user-attachments/assets/a35aad9d-c2f0-44bb-be16-5a44cf11bead" />
 
 ## n8n AI RAG Chatbot (Mistral + Pinecone)
 Un workflow n8n permettant de créer un chatbot intelligent basé sur tes documents (RAG - Retrieval Augmented Generation).
