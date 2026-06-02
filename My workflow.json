@@ -1,0 +1,300 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "insert",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "covidrag",
+          "mode": "list",
+          "cachedResultName": "covidrag"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.3,
+      "position": [
+        336,
+        -96
+      ],
+      "id": "221b18c5-33be-4f68-a1a0-dda1949159fb",
+      "name": "Pinecone Vector Store",
+      "credentials": {
+        "pineconeApi": {
+          "id": "XelycttGSVsqMgQ5",
+          "name": "Pinecone account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsMistralCloud",
+      "typeVersion": 1,
+      "position": [
+        336,
+        432
+      ],
+      "id": "15cd9fd2-8aff-4bcd-8d61-3b996f310e93",
+      "name": "Embeddings Mistral Cloud",
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "BiKYs0RjYKWWK9j7",
+          "name": "Mistral Cloud account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "Utilise cet outil pour rechercher des documents \npertinents et répondre aux questions de l'utilisateur",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "covidrag",
+          "mode": "list",
+          "cachedResultName": "covidrag"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.3,
+      "position": [
+        1376,
+        192
+      ],
+      "id": "1dd1708c-cee5-4bea-a4bb-4bc3bfdc7e86",
+      "name": "Pinecone Vector Store1",
+      "credentials": {
+        "pineconeApi": {
+          "id": "XelycttGSVsqMgQ5",
+          "name": "Pinecone account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        976,
+        -80
+      ],
+      "id": "848a318d-4c3d-47fe-a9b7-1bdc2f28f50e",
+      "name": "When chat message received",
+      "webhookId": "36ff992f-a21d-4327-bc15-e05da700387b"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "tu es un assistant répond uniquement en te basant sur les documents fournis"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1312,
+        -80
+      ],
+      "id": "3b81bd69-f8ed-4581-afef-1ead8d541302",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "model": "codestral-2508",
+        "options": {
+          "topP": 1
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatMistralCloud",
+      "typeVersion": 1,
+      "position": [
+        1088,
+        112
+      ],
+      "id": "e2a1be86-7b05-4175-b7d1-4f152de8fbe2",
+      "name": "Mistral Cloud Chat Model",
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "BiKYs0RjYKWWK9j7",
+          "name": "Mistral Cloud account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "1wumvG59qSNS2TvclDAcibJ_Ocg5MkSSr",
+          "mode": "list",
+          "cachedResultName": "covid_data.csv",
+          "cachedResultUrl": "https://drive.google.com/file/d/1wumvG59qSNS2TvclDAcibJ_Ocg5MkSSr/view?usp=drivesdk"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -112,
+        -96
+      ],
+      "id": "3e43baf6-7d15-4b72-b274-be65e01ed030",
+      "name": "Download file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "KUg0iSB4Lf8CISL2",
+          "name": "Google Drive OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -384,
+        -96
+      ],
+      "id": "fd88cf3f-f7d4-48df-9a31-0b2759266245",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        144,
+        -96
+      ],
+      "id": "8d70ba0a-20d7-413e-8cd4-1cab31707ad0",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        576,
+        128
+      ],
+      "id": "8d3e78d5-17c2-4140-87b5-8102bc9e12e6",
+      "name": "Default Data Loader2"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Embeddings Mistral Cloud": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "Pinecone Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mistral Cloud Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Download file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader2": {
+      "ai_document": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "1dd5fe77-e419-4991-aaaf-c98d186c67d9",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ee993b1860abc92183a980bd707640c7ee132ee1a2f75b21c3a099971bc4606a"
+  },
+  "id": "r3tFvJx9zisBA2MW",
+  "tags": []
+}
