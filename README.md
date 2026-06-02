@@ -1,27 +1,25 @@
 <img width="1699" height="648" alt="Screenshot 2026-06-02 11 01 01" src="https://github.com/user-attachments/assets/a35aad9d-c2f0-44bb-be16-5a44cf11bead" />
 
-## n8n AI RAG Chatbot (Mistral + Pinecone)
-Un workflow n8n permettant de créer un chatbot intelligent basé sur tes documents (RAG - Retrieval Augmented Generation).
+#  AI RAG Chatbot (n8n • Mistral • Pinecone)
 
-## Objectif du projet:
-- connecter n8n avec un LLM (Mistral)
-- indexer des données dans Pinecone
-- créer un agent capable de répondre à partir de documents personalisés
-  
-ce projet peut etre utilisé par :
-- chatbot interne entreprise
-- assistant documentaire
-- FAQ automatisée
+Système RAG ,conçu avec un pipeline no-code permettant une recherche sémantique et la génération de réponses contextuelles à partir de documents personnalisés.
 
+##  Fonctionnalités
 
- ## Fonctionnalités
--  Upload et extraction de fichiers (Google Drive)
--  Embedding avec Mistral
-- Stockage vectoriel via Pinecone
--  Chatbot avec agent AI
--  Recherche sémantique (RAG)
+- Pipeline RAG complet : ingestion → embeddings → retrieval → génération  
+- Recherche sémantique via base vectorielle Pinecone  
+- Intégration d’un LLM (Mistral) pour des réponses fiables et contextualisées  
+- Automatisation du workflow avec n8n  
+
+##  Architecture
+
+Documents → Chunking → Embeddings → Vector DB → Retrieval → LLM → Réponse  
+
+##  Objectif
+Démontrer la conception d’un système d’IA générative scalable combinant LLM, vector search et automatisation pour construire un moteur de connaissance intelligent.
 
 ##  Stack technique:
+
 - n8n (automation)
 - Mistral API (LLM)
 - Pinecone (vector database)
@@ -29,12 +27,12 @@ ce projet peut etre utilisé par :
 - Google Drive API
 
 ##  Contenu du repo
+
 - `workflow.json` → workflow n8n importable
 - `.env.example` → variables d’environnement à configurer
 
----
-
 ##  Installation
+
 ### 1. Installer n8n
 - Local ou cloud
 
