@@ -154,17 +154,12 @@ Dans [app.pinecone.io](https://app.pinecone.io), crée un index avec ces paramè
 
 ##  Cas d'usage — Dataset COVID-19
 
-Le projet utilise un dataset COVID-19 (cas, décès, vaccinations par pays). Exemples de questions :
-
-```
-"Quel pays a enregistré le plus de cas en 2021 ?"
-"Compare les taux de vaccination entre la France et l'Allemagne."
-"Quelle est l'évolution des décès en Europe au T1 2022 ?"
-```
-
-> L'agent répond **uniquement sur les données indexées**, sans inventer de chiffres.
+Le projet utilise un dataset COVID-19 (cas, décès, vaccinations par pays). 
 
 ---
+> L'agent répond **uniquement sur les données indexées**, sans inventer de chiffres.
+
+
 
 ---
 
